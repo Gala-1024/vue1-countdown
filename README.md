@@ -20,7 +20,7 @@ components: {
 ```
 
 ```html
-<count-down v-on:start_callback="countDownS_cb(1)" v-on:end_callback="countDownE_cb(1)" :currentTime="1481450106" :startTime="1481450110" :endTime="1481450115" :tipText="'距离开始文字1'" :tipTextEnd="'距离结束文字1'" :endText="'结束自定义文字2'"></count-down>
+<count-down :current-time="1481450106" :start-time="1481450110" :end-time="1481450115" :tip-text="'距离开始文字1'" :tip-text-end="'距离结束文字1'" :end-text="'结束自定义文字2'" v-on:start_callback="countDownS_cb(2)" v-on:end_callback="countDownE_cb(2)"></count-down>
 ```
 
 ### options

@@ -65,7 +65,8 @@
                 defaule:false
             }
         },
-        mounted () {
+        ready () {
+            console.log(this.startTime);
             //判断是秒还是毫秒
             this.startTime.toString().length==10 ? this.star = this.startTime*1000 : this.star = this.startTime;
             this.endTime.toString().length==10 ? this.end = this.endTime*1000 : this.end = this.endTime;
@@ -86,7 +87,7 @@
                 /**
                  * 当前时间小于开始时间 活动尚未开始
                  */
-                this.$set(this,'tipShow',true);
+                this.$set('tipShow',true);
                 setTimeout(()=>{
                     this.runTime(this.star,this.current,this.start_message);
                 },1);
@@ -95,9 +96,9 @@
                 /**
                  * 结束时间大于当前并且开始时间小于当前时间，执行活动开始倒计时
                  */
-                this.$set(this,'tipShow',false);
+                this.$set('tipShow',false);
                 this.msTime.show = true;
-                this.$emit('start_callback', this.msTime.show);
+                this.$dispatch('start_callback', this.msTime.show);
                 setTimeout(()=>{
                     this.runTime(this.end,this.star,this.end_message,true)
                 },1);
@@ -145,15 +146,15 @@
                 }
             },
             start_message () {
-                this.$set(this,'tipShow',false);
-                this.$emit('start_callback', this.msTime.show);
+                this.$set('tipShow',false);
+                this.$dispatch('start_callback', this.msTime.show);
                 setTimeout(()=>{
                     this.runTime(this.end,this.star,this.end_message,true)
                 },1);
             },
             end_message(){
                 this.msTime.show = false;
-                this.$emit('end_callback', this.msTime.show);
+                this.$dispatch('end_callback', this.msTime.show);
             }
         }
     }
