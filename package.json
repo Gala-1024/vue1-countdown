@@ -15,7 +15,7 @@
     "countdown"
   ],
   "author": "cgygd",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/cgygd/vue2-countdown/issues"
   },
